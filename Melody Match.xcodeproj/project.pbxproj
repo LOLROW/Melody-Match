@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C6B5D652CCE0D600049354A /* songDB.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C6B5D642CCE0D570049354A /* songDB.json */; };
+		1C6B5D672CCE0EA50049354A /* WebServerQuerier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B5D662CCE0EA50049354A /* WebServerQuerier.swift */; };
 		A25F41D52CCDEC1700E99FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41D42CCDEC1700E99FBD /* AppDelegate.swift */; };
 		A25F41D72CCDEC1700E99FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41D62CCDEC1700E99FBD /* SceneDelegate.swift */; };
 		A25F41D92CCDEC1700E99FBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41D82CCDEC1700E99FBD /* ViewController.swift */; };
@@ -16,7 +18,6 @@
 		A25F41EC2CCDEC1800E99FBD /* Melody_MatchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41EB2CCDEC1800E99FBD /* Melody_MatchTests.swift */; };
 		A25F41F62CCDEC1800E99FBD /* Melody_MatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41F52CCDEC1800E99FBD /* Melody_MatchUITests.swift */; };
 		A25F41F82CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41F72CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift */; };
-		A25F42052CCDFB7200E99FBD /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = A25F42042CCDFB7200E99FBD /* songs.json */; };
 		A25F42072CCE076900E99FBD /* ViewControllerDos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F42062CCE076900E99FBD /* ViewControllerDos.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C6B5D642CCE0D570049354A /* songDB.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = songDB.json; sourceTree = "<group>"; };
+		1C6B5D662CCE0EA50049354A /* WebServerQuerier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServerQuerier.swift; sourceTree = "<group>"; };
 		A25F41D12CCDEC1700E99FBD /* Melody Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Melody Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25F41D42CCDEC1700E99FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A25F41D62CCDEC1700E99FBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +54,6 @@
 		A25F41F12CCDEC1800E99FBD /* Melody MatchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Melody MatchUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25F41F52CCDEC1800E99FBD /* Melody_MatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Melody_MatchUITests.swift; sourceTree = "<group>"; };
 		A25F41F72CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Melody_MatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		A25F42042CCDFB7200E99FBD /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = songs.json; path = ../../../songs.json; sourceTree = "<group>"; };
 		A25F42062CCE076900E99FBD /* ViewControllerDos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +105,8 @@
 		A25F41D32CCDEC1700E99FBD /* Melody Match */ = {
 			isa = PBXGroup;
 			children = (
-				A25F42042CCDFB7200E99FBD /* songs.json */,
+				1C6B5D662CCE0EA50049354A /* WebServerQuerier.swift */,
+				1C6B5D642CCE0D570049354A /* songDB.json */,
 				A25F41D42CCDEC1700E99FBD /* AppDelegate.swift */,
 				A25F41D62CCDEC1700E99FBD /* SceneDelegate.swift */,
 				A25F41D82CCDEC1700E99FBD /* ViewController.swift */,
@@ -237,7 +240,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A25F42052CCDFB7200E99FBD /* songs.json in Resources */,
+				1C6B5D652CCE0D600049354A /* songDB.json in Resources */,
 				A25F41E12CCDEC1800E99FBD /* LaunchScreen.storyboard in Resources */,
 				A25F41DE2CCDEC1800E99FBD /* Assets.xcassets in Resources */,
 				A25F41DC2CCDEC1700E99FBD /* Main.storyboard in Resources */,
@@ -269,6 +272,7 @@
 				A25F41D52CCDEC1700E99FBD /* AppDelegate.swift in Sources */,
 				A25F41D72CCDEC1700E99FBD /* SceneDelegate.swift in Sources */,
 				A25F42072CCE076900E99FBD /* ViewControllerDos.swift in Sources */,
+				1C6B5D672CCE0EA50049354A /* WebServerQuerier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

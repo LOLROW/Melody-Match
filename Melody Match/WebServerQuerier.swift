@@ -1,55 +1,42 @@
 import Foundation
 
-public class WebServerQuerier{
-    public static func fetchData(from url: String, completion: @escaping (Result<[String: Any], Error>) -> Void) {
+public class WebServerQuerier {
+    
+    // Function to fetch data asynchronously
+    public static func fetchData(from url: String) async throws -> [String: Any] {
         guard let url = URL(string: url) else {
-            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])))
-            return
+            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid URL"])
         }
 
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
+        let (data, response) = try await URLSession.shared.data(from: url)
 
-            guard let data = data else {
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data"])))
-                return
-            }
-
-            do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                    completion(.success(json))
-                } else {
-                    completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "JSON decoding error"])))
-                }
-            } catch {
-                completion(.failure(error))
-            }
+        // Check for HTTP response status
+        guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+            throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Server error"])
         }
 
-        task.resume()
+        do {
+            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                return json
+            } else {
+                throw NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "JSON decoding error"])
+            }
+        } catch {
+            throw error
+        }
     }
 
-    // Usage
-    public static func getSongID() -> Int? {
+    // Function to get the Song ID asynchronously
+    public static func getSongID() async -> Int? {
         let esp8266URL = "http://192.168.4.1/data"
-        var songID: Int? = nil
-        
-        fetchData(from: esp8266URL) { result in
-            switch result {
-            case .success(let json):
-                print("JSON Data: \(json)")
-                // Forcefully unwrap since "id" is always present
-                songID = json["id"] as? Int // Safely unwrapping for potential safety
-                print("ID: \(songID!)") // Print the ID
-            case .failure(let error):
-                // Print error message
-                print("Error: \(error.localizedDescription)")
-            }
+        do {
+            let json = try await fetchData(from: esp8266URL)
+            print("JSON Data: \(json)")
+            // Forcefully unwrap since "id" is always present
+            return json["id"] as? Int
+        } catch {
+            print("Error fetching song ID: \(error.localizedDescription)")
+            return nil
         }
-        
-        return songID // This will return nil immediately since fetchData is async
     }
 }
