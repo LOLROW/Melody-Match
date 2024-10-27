@@ -17,6 +17,7 @@
 		A25F41F62CCDEC1800E99FBD /* Melody_MatchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41F52CCDEC1800E99FBD /* Melody_MatchUITests.swift */; };
 		A25F41F82CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41F72CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift */; };
 		A25F42052CCDFB7200E99FBD /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = A25F42042CCDFB7200E99FBD /* songs.json */; };
+		A25F42072CCE076900E99FBD /* ViewControllerDos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F42062CCE076900E99FBD /* ViewControllerDos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A25F41F52CCDEC1800E99FBD /* Melody_MatchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Melody_MatchUITests.swift; sourceTree = "<group>"; };
 		A25F41F72CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Melody_MatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A25F42042CCDFB7200E99FBD /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = songs.json; path = ../../../songs.json; sourceTree = "<group>"; };
+		A25F42062CCE076900E99FBD /* ViewControllerDos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDos.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				A25F41D42CCDEC1700E99FBD /* AppDelegate.swift */,
 				A25F41D62CCDEC1700E99FBD /* SceneDelegate.swift */,
 				A25F41D82CCDEC1700E99FBD /* ViewController.swift */,
+				A25F42062CCE076900E99FBD /* ViewControllerDos.swift */,
 				A25F41DA2CCDEC1700E99FBD /* Main.storyboard */,
 				A25F41DD2CCDEC1800E99FBD /* Assets.xcassets */,
 				A25F41DF2CCDEC1800E99FBD /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 				A25F41D92CCDEC1700E99FBD /* ViewController.swift in Sources */,
 				A25F41D52CCDEC1700E99FBD /* AppDelegate.swift in Sources */,
 				A25F41D72CCDEC1700E99FBD /* SceneDelegate.swift in Sources */,
+				A25F42072CCE076900E99FBD /* ViewControllerDos.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
