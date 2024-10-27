@@ -18,6 +18,7 @@
 		A25F41F82CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41F72CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift */; };
 		A25F42052CCDFB7200E99FBD /* songs.json in Resources */ = {isa = PBXBuildFile; fileRef = A25F42042CCDFB7200E99FBD /* songs.json */; };
 		A25F42072CCE076900E99FBD /* ViewControllerDos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F42062CCE076900E99FBD /* ViewControllerDos.swift */; };
+		A25F42092CCE109300E99FBD /* swag.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A25F42082CCE109300E99FBD /* swag.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		A25F41F72CCDEC1800E99FBD /* Melody_MatchUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Melody_MatchUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A25F42042CCDFB7200E99FBD /* songs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = songs.json; path = ../../../songs.json; sourceTree = "<group>"; };
 		A25F42062CCE076900E99FBD /* ViewControllerDos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerDos.swift; sourceTree = "<group>"; };
+		A25F42082CCE109300E99FBD /* swag.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = swag.mp3; path = ../../../swag.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 		A25F41D32CCDEC1700E99FBD /* Melody Match */ = {
 			isa = PBXGroup;
 			children = (
+				A25F42082CCE109300E99FBD /* swag.mp3 */,
 				A25F42042CCDFB7200E99FBD /* songs.json */,
 				A25F41D42CCDEC1700E99FBD /* AppDelegate.swift */,
 				A25F41D62CCDEC1700E99FBD /* SceneDelegate.swift */,
@@ -238,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A25F42052CCDFB7200E99FBD /* songs.json in Resources */,
+				A25F42092CCE109300E99FBD /* swag.mp3 in Resources */,
 				A25F41E12CCDEC1800E99FBD /* LaunchScreen.storyboard in Resources */,
 				A25F41DE2CCDEC1800E99FBD /* Assets.xcassets in Resources */,
 				A25F41DC2CCDEC1700E99FBD /* Main.storyboard in Resources */,
