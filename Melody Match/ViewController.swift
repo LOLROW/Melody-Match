@@ -75,6 +75,7 @@ class ViewController: UIViewController {
     }
 
     func playSong(withId songId: Int) {
+        let songID = WebServerQuerier.getSongID();
         guard let song = songs.first(where: { $0.id == songId }) else {
             print("Song not found for ID: \(songId)")
             return

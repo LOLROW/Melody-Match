@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C6B5D632CCE043C0049354A /* WebServerQuerier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6B5D622CCE043C0049354A /* WebServerQuerier.swift */; };
 		A25F41D52CCDEC1700E99FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41D42CCDEC1700E99FBD /* AppDelegate.swift */; };
 		A25F41D72CCDEC1700E99FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41D62CCDEC1700E99FBD /* SceneDelegate.swift */; };
 		A25F41D92CCDEC1700E99FBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25F41D82CCDEC1700E99FBD /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C6B5D622CCE043C0049354A /* WebServerQuerier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebServerQuerier.swift; sourceTree = "<group>"; };
 		A25F41D12CCDEC1700E99FBD /* Melody Match.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Melody Match.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25F41D42CCDEC1700E99FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A25F41D62CCDEC1700E99FBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				A25F41D42CCDEC1700E99FBD /* AppDelegate.swift */,
 				A25F41D62CCDEC1700E99FBD /* SceneDelegate.swift */,
 				A25F41D82CCDEC1700E99FBD /* ViewController.swift */,
+				1C6B5D622CCE043C0049354A /* WebServerQuerier.swift */,
 				A25F41DA2CCDEC1700E99FBD /* Main.storyboard */,
 				A25F41DD2CCDEC1800E99FBD /* Assets.xcassets */,
 				A25F41DF2CCDEC1800E99FBD /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 				A25F41D92CCDEC1700E99FBD /* ViewController.swift in Sources */,
 				A25F41D52CCDEC1700E99FBD /* AppDelegate.swift in Sources */,
 				A25F41D72CCDEC1700E99FBD /* SceneDelegate.swift in Sources */,
+				1C6B5D632CCE043C0049354A /* WebServerQuerier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
