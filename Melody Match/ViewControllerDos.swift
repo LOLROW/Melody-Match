@@ -1,50 +1,19 @@
 import UIKit
 import AVFoundation
 
-var audioPlayer: AVAudioPlayer?
-var isPlaying = false
-
-func playAudio(songTitle: String) {
-    guard let url = Bundle.main.url(forResource: songTitle, withExtension: "mp3") else { // Replace with your audio file name and extension
-            print("Audio file not found")
-            return
-        }
-        
-        do {
-//            audioPlayer = try AVAudioPlayer(contentsOf: url)
-////            audioPlayer?.prepareToPlay()
-////            audioPlayer?.play()
-//
-//            if isPlaying {
-//                audioPlayer?.pause()
-//            }
-//            else {
-//                audioPlayer?.prepareToPlay()
-//                audioPlayer?.play()
-//            }
-            if audioPlayer == nil {
-                audioPlayer = try AVAudioPlayer(contentsOf: url)
-                audioPlayer?.prepareToPlay()
-            }
-            
-            if isPlaying {
-                audioPlayer?.pause()
-            } else {
-                audioPlayer?.play()
-            }
-            
-            isPlaying.toggle()
-        } catch {
-            print("Error playing audio: \(error.localizedDescription)")
-        }
-}
 
 class ViewControllerDos: UIViewController {
     
     @IBOutlet weak var songTitle: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
+    @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var confidenceLevelLabel: UILabel!
-
+    
+    var audioPlayer: AVAudioPlayer?
+    var isPlaying = false
+    var currentSong = ""
+    var songIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         Task {
@@ -52,11 +21,38 @@ class ViewControllerDos: UIViewController {
         }
     }
     
+    func playAudio(songID: Int) {
+        guard let url = Bundle.main.url(forResource: "\(songIndex)", withExtension: "mp3") else { // Replace with your audio file name and extension
+                print("Audio file not found")
+                return
+            }
+        
+            do {
+                if audioPlayer == nil {
+                    audioPlayer = try AVAudioPlayer(contentsOf: url)
+                    audioPlayer?.prepareToPlay()
+                }
+                
+                if isPlaying {
+                    audioPlayer?.pause()
+                    playButton.setTitle("Play", for: .normal)
+                } else {
+                    audioPlayer?.play()
+                    playButton.setTitle("Pause", for: .normal)
+                }
+                
+                isPlaying.toggle()
+            } catch {
+                print("Error playing audio: \(error.localizedDescription)")
+            }
+    }
+    
     // Function to get song data asynchronously
     func getSongData() async {
         if let id = await WebServerQuerier.getSongID() {
             print("Fetched Song ID: \(id)")
             loadSongData(for: id)
+            songIndex = id
         } else {
             print("Failed to fetch Song ID")
         }
@@ -87,11 +83,48 @@ class ViewControllerDos: UIViewController {
     }
     
     @IBAction func playSongButton(_ sender: Any) {
-        // Add your play song logic here
+        playAudio(songID: songIndex)
     }
     
-    @IBAction func stopSong(_ sender: Any) {
-        // Add your stop song logic here
-        playAudio(songTitle: "swag")
+    @IBAction func restartButton(_ sender: Any) {
+        if let currentTime = audioPlayer?.currentTime, currentTime <= 2.0 {
+            songIndex -= 1
+            if songIndex < 0 {
+                songIndex += 1
+            }
+            audioPlayer = nil
+            playAudio(songID: songIndex)
+        }
+        else {
+            audioPlayer?.currentTime = 0
+            playAudio(songID: songIndex)
+        }
+    }
+    
+    @IBAction func skipSongButton(_ sender: Any) {
+        /*songIndex += 1
+        if songIndex > songs.count {
+            songIndex = songs.count - 1
+        }
+        if audioPlayer?.isPlaying == true {
+            audioPlayer?.stop()
+            isPlaying = false
+        }
+        audioPlayer = nil
+        playAudio(songID: songIndex)*/
+        Task {
+            let res = await WebServerQuerier.requestNextSong();
+            if res == false {
+                print("failed to request next song");
+            }
+            if let id = await WebServerQuerier.getSongID() {
+                print("Fetched Song ID: \(id)")
+                loadSongData(for: id)
+                songIndex = Int(exactly: id)!
+                playAudio(songID: songIndex);
+            } else {
+                print("Failed to fetch Song ID")
+            }
+        }
     }
 }
