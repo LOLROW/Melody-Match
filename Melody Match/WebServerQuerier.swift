@@ -27,16 +27,16 @@ public class WebServerQuerier {
     }
 
     // Function to get the Song ID asynchronously
-    public static func getSongID() async -> Int? {
+    public static func getSongID() async -> (id:Int?, genre:String?, bpm:Double?) {
         let esp8266URL = "http://192.168.4.1/viewserverdata"
         do {
             let json = try await fetchData(from: esp8266URL)
             print("JSON Data: \(json)")
             // Forcefully unwrap since "id" is always present
-            return json["id"] as? Int
+            return (json["id"] as? Int, json["genre"] as? String, json["bpm"] as? Double)
         } catch {
             print("Error fetching song ID: \(error.localizedDescription)")
-            return nil
+            return (nil,nil,nil)
         }
     }
 

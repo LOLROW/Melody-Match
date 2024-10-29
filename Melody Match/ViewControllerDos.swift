@@ -16,9 +16,6 @@ class ViewControllerDos: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Task {
-            await getSongData()
-        }
     }
     
     func playAudio(songID: Int) {
@@ -48,18 +45,9 @@ class ViewControllerDos: UIViewController {
     }
     
     // Function to get song data asynchronously
-    func getSongData() async {
-        if let id = await WebServerQuerier.getSongID() {
-            print("Fetched Song ID: \(id)")
-            loadSongData(for: id)
-            songIndex = id
-        } else {
-            print("Failed to fetch Song ID")
-        }
-    }
 
     // Function to load song data
-    func loadSongData(for id: Int) {
+    /*func loadSongData(for id: Int) {
         guard let url = Bundle.main.url(forResource: "songDB", withExtension: "json") else {
             print("JSON file not found")
             return
@@ -80,7 +68,7 @@ class ViewControllerDos: UIViewController {
         } catch {
             print("Error loading or parsing JSON: \(error.localizedDescription)")
         }
-    }
+    }*/
     
     @IBAction func playSongButton(_ sender: Any) {
         playAudio(songID: songIndex)
@@ -117,13 +105,22 @@ class ViewControllerDos: UIViewController {
             if res == false {
                 print("failed to request next song");
             }
-            if let id = await WebServerQuerier.getSongID() {
-                print("Fetched Song ID: \(id)")
-                loadSongData(for: id)
-                songIndex = Int(exactly: id)!
-                playAudio(songID: songIndex);
-            } else {
-                print("Failed to fetch Song ID")
+            while true {
+                if let id = await WebServerQuerier.getSongID() as? (Int?, String?, Double?) {
+                    if songIndex == id.0! {
+                        continue;
+                    }
+                    print("Fetched Song ID: \(id.0!)")
+                    songIndex = id.0!
+                    self.songTitle.text = "Song ID: \(id.0!)";
+                    self.genreLabel.text = "Genre: \(id.1!)";
+                    self.confidenceLevelLabel.text = "BPM: \(Int(ceil(id.2!)))";
+                    audioPlayer = nil
+                    playAudio(songID: songIndex);
+                    return;
+                } else {
+                    print("Failed to fetch Song ID")
+                }
             }
         }
     }
